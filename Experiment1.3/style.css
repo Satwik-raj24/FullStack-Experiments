@@ -1,0 +1,107 @@
+:root {
+    --bg: #f4f6f8;
+    --text: #000;
+    --card: #fff;
+    --header: #2563eb;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #fff;
+    --card: #1e1e1e;
+    --header: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 60px 1fr 40px;
+    height: 100vh;
+}
+
+/* AREAS */
+.header {
+    grid-area: header;
+    background: var(--header);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: var(--card);
+    padding: 20px;
+    border-right: 2px solid #ccc;
+}
+
+.content {
+    grid-area: content;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    background: var(--header);
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    padding: 8px 12px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        display: none;
+    }
+}
